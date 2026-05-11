@@ -1,0 +1,9 @@
+[Bb]in/
+[Oo]bj/
+.vs/
+*.user
+*.lock.json
+.vscode/
+.DS_Store
+wwwroot/images/*
+!wwwroot/images/.gitkeep
