@@ -1,0 +1,75 @@
+:root {
+    --amber-color: #FFB300;
+    --slate-gray: #455A64;
+    --dark-bg: #333333;
+}
+
+body {
+    background-color: #f4f7f6;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: var(--dark-bg);
+}
+
+nav.navbar {
+    background-color: var(--amber-color) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Fix chiều cao ảnh để danh sách luôn đều nhau */
+.product-card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12) !important;
+}
+
+.btn-buy {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.btn-buy:hover {
+    background-color: #038a58;
+    color: white;
+}
+
+.btn-custom {
+    background-color: var(--slate-gray);
+    color: white;
+}
+
+.btn-custom:hover {
+    background-color: #37474F;
+    color: var(--amber-color);
+}
+
+.sidebar {
+    background-color: var(--slate-gray);
+    color: white;
+}
+
+.social-link {
+    color: #e0e0e0;
+    text-decoration: none;
+    display: block;
+    padding: 8px;
+    margin-bottom: 5px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+}
+
+.social-link:hover {
+    background: var(--amber-color);
+    color: #333;
+}
+
+.text-amber {
+    color: var(--amber-color);
+}
