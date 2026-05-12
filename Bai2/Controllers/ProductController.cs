@@ -86,26 +86,29 @@ namespace Bai2.Controllers
             if (ModelState.IsValid)
             {
                 var existingProduct = _productRepository.GetById(product.Id);
-                if (ImageUrl != null)
+                if (existingProduct != null)
                 {
-                    product.ImageUrl = await SaveImage(ImageUrl);
-                }
-                else
-                {
-                    product.ImageUrl = existingProduct.ImageUrl;
-                }
-
-                if (ImageUrls != null && ImageUrls.Count > 0)
-                {
-                    product.ImageUrls = new List<string>();
-                    foreach (var file in ImageUrls)
+                    if (ImageUrl != null)
                     {
-                        product.ImageUrls.Add(await SaveImage(file));
+                        product.ImageUrl = await SaveImage(ImageUrl);
                     }
-                }
-                else
-                {
-                    product.ImageUrls = existingProduct.ImageUrls;
+                    else
+                    {
+                        product.ImageUrl = existingProduct.ImageUrl;
+                    }
+
+                    if (ImageUrls != null && ImageUrls.Count > 0)
+                    {
+                        product.ImageUrls = new List<string>();
+                        foreach (var file in ImageUrls)
+                        {
+                            product.ImageUrls.Add(await SaveImage(file));
+                        }
+                    }
+                    else
+                    {
+                        product.ImageUrls = existingProduct.ImageUrls;
+                    }
                 }
 
                 _productRepository.Update(product);
