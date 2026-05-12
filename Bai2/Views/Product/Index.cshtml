@@ -1,47 +1,68 @@
 @model IEnumerable<Bai2.Models.Product>
 
 @{
-    ViewData["Title"] = "Products";
+    ViewData["Title"] = "Our Collection";
 }
 
-<h2>Products</h2>
+<div class="container my-5">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <div>
+            <h2 class="fw-bold mb-0">Our Collection</h2>
+            <p class="text-muted">Handpicked premium products for you.</p>
+        </div>
+        <a asp-action="Add" class="btn btn-primary d-flex align-items-center gap-2">
+            <i class="bi bi-plus-lg"></i> Add New Product
+        </a>
+    </div>
 
-<p>
-    <a asp-action="Add" class="btn btn-success">Create New</a>
-</p>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        @foreach (var product in Model)
+        {
+            <div class="col">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="position-relative">
+                        @if (!string.IsNullOrEmpty(product.ImageUrl))
+                        {
+                            <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" style="height: 250px; object-fit: cover;">
+                        }
+                        else
+                        {
+                            <div class="bg-light d-flex align-items-center justify-content-center" style="height: 250px;">
+                                <i class="bi bi-image text-muted fs-1"></i>
+                            </div>
+                        }
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <span class="badge bg-white text-dark shadow-sm px-3 py-2 rounded-pill fw-bold">
+                                @product.Price.ToString("C")
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold mb-2">@product.Name</h5>
+                        <p class="card-text text-muted small mb-4 text-truncate" style="max-width: 100%;">
+                            @product.Description
+                        </p>
+                        <div class="d-flex gap-2">
+                            <a asp-action="Display" asp-route-id="@product.Id" class="btn btn-outline-primary flex-grow-1 rounded-3">Details</a>
+                            <div class="dropdown">
+                                <button class="btn btn-light rounded-3" type="button" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3">
+                                    <li><a class="dropdown-item" asp-action="Update" asp-route-id="@product.Id">Edit</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-danger" asp-action="Delete" asp-route-id="@product.Id">Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Description</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var product in Model) {
-        <tr>
-            <td>
-                @if (!string.IsNullOrEmpty(product.ImageUrl))
-                {
-                    <img src="@product.ImageUrl" alt="@product.Name" style="width: 50px; height: 50px; object-fit: cover;" />
-                }
-                else
-                {
-                    <span>No Image</span>
-                }
-            </td>
-            <td>@product.Name</td>
-            <td>@product.Price.ToString("C")</td>
-            <td>@product.Description</td>
-            <td>
-                <a asp-action="Display" asp-route-id="@product.Id" class="btn btn-info btn-sm">View</a> |
-                <a asp-action="Update" asp-route-id="@product.Id" class="btn btn-primary btn-sm">Edit</a> |
-                <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger btn-sm">Delete</a>
-            </td>
-        </tr>
+@section Scripts {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 }
-    </tbody>
-</table>
+
