@@ -1,5 +1,6 @@
 :root {
-    --amber-color: #4e342e;
+    --primary-green: #2ecc71; /* Màu xanh lá tươi tắn, sống động */
+    --nav-dark: #1e272e;      /* Màu xanh đen hiện đại thay cho màu nâu */
     --slate-gray: #455A64;
     --dark-bg: #333333;
 }
@@ -10,17 +11,31 @@ body {
 }
 
 header {
-    background-color: var(--dark-bg);
+    background-color: var(--primary-green) !important;
 }
 
 nav.navbar {
-    background-color: var(--amber-color) !important;
+    background-color: var(--nav-dark) !important;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.card-text {
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.2;
+    height: 2.4rem;
+    overflow: hidden;
 }
 
 /* Fix chiều cao ảnh để danh sách luôn đều nhau */
 .product-card img {
-    height: 200px;
+    height: 160px;
     object-fit: cover;
 }
 
@@ -31,28 +46,44 @@ nav.navbar {
 }
 
 .btn-buy {
-    background-color: #04AA6D;
+    background-color: var(--primary-green);
     color: white;
 }
 
 .btn-buy:hover {
-    background-color: #038a58;
+    background-color: #27ae60;
     color: white;
 }
 
-.btn-custom {
-    background-color: var(--slate-gray);
-    color: white;
+.sidebar-box {
+    font-size: 0.85rem;
+    min-width: 180px;
 }
 
-.btn-custom:hover {
-    background-color: #37474F;
-    color: var(--amber-color);
+.rating-stars i {
+    font-size: 0.7rem;
 }
 
-.sidebar {
-    background-color: var(--slate-gray);
-    color: white;
+/* Sidebar toggle animation */
+#sidebar-column {
+    transition: all 0.3s ease;
+}
+
+.collapsed-sidebar {
+    width: 0;
+    padding: 0 !important;
+    overflow: hidden;
+    opacity: 0;
+    margin-left: -1rem;
+}
+
+.product-area {
+    transition: all 0.3s ease;
+}
+
+.toggle-btn {
+    cursor: pointer;
+    z-index: 1000;
 }
 
 .social-link {
@@ -66,10 +97,6 @@ nav.navbar {
 }
 
 .social-link:hover {
-    background: var(--amber-color);
-    color: #333;
-}
-
-.text-amber {
-    color: var(--amber-color);
+    background: var(--primary-green);
+    color: white;
 }
