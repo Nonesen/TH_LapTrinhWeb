@@ -86,6 +86,11 @@ nav.navbar {
     z-index: 1000;
 }
 
+.toggle-btn:focus, .toggle-btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 .social-link {
     color: #e0e0e0;
     text-decoration: none;
