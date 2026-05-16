@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffee Tree</title>
 
-    <!-- Sử dụng Bootstrap CSS -->
+    <!-- Bootstrap CSS & Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -31,12 +32,12 @@
         .price-text {
             font-weight: bold;
             color: #d9534f;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            margin-bottom: 0;
         }
 
         .card img {
-            height: 120px;
+            height: 130px;
             object-fit: cover;
         }
 
@@ -52,6 +53,10 @@
         .sidebar-box {
             font-size: 0.85rem;
         }
+        
+        .rating-stars i {
+            font-size: 0.7rem;
+        }
     </style>
 </head>
 
@@ -60,7 +65,6 @@
         <h1 class="mb-0">Trang Web Bán Hàng</h1>
     </header>
 
-    <!-- Menu điều hướng sử dụng Bootstrap Navbar - Đã loại bỏ bg-warning để dùng màu từ style.css -->
     <nav class="navbar navbar-expand-lg navbar-dark py-0">
         <div class="container">
             <a class="navbar-brand fs-6" href="#">Trang Chủ</a>
@@ -90,8 +94,20 @@
                             <div class="card-body p-2">
                                 <h5 class="card-title text-truncate">Cà Phê Espresso</h5>
                                 <p class="card-text">Đậm đặc nguyên chất, nền tảng của mọi loại cà phê.</p>
-                                <p class="price-text">35.000đ</p>
-                                <a href="#" class="btn btn-buy w-100">Mua Ngay</a>
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <span class="price-text">35.000đ</span>
+                                    <div class="rating-stars">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-half text-warning"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between bg-light p-2 border-top-0">
+                                <button class="btn btn-success btn-buy btn-sm w-75 py-1">Mua Ngay</button>
+                                <button class="btn btn-outline-secondary btn-sm px-2 py-1"><i class="bi bi-heart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -103,8 +119,20 @@
                             <div class="card-body p-2">
                                 <h5 class="card-title text-truncate">Cà Phê Latte</h5>
                                 <p class="card-text">Sự hòa quyện giữa Espresso và sữa tươi mịn màng.</p>
-                                <p class="price-text">45.000đ</p>
-                                <a href="#" class="btn btn-buy w-100">Mua Ngay</a>
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <span class="price-text">45.000đ</span>
+                                    <div class="rating-stars">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between bg-light p-2 border-top-0">
+                                <button class="btn btn-success btn-buy btn-sm w-75 py-1">Mua Ngay</button>
+                                <button class="btn btn-outline-secondary btn-sm px-2 py-1"><i class="bi bi-heart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -116,8 +144,20 @@
                             <div class="card-body p-2">
                                 <h5 class="card-title text-truncate">Cà Phê Cappuccino</h5>
                                 <p class="card-text">Lớp bọt sữa dày bồng bềnh trên nền Espresso đậm đà.</p>
-                                <p class="price-text">40.000đ</p>
-                                <a href="#" class="btn btn-buy w-100">Mua Ngay</a>
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <span class="price-text">40.000đ</span>
+                                    <div class="rating-stars">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-half text-warning"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between bg-light p-2 border-top-0">
+                                <button class="btn btn-success btn-buy btn-sm w-75 py-1">Mua Ngay</button>
+                                <button class="btn btn-outline-secondary btn-sm px-2 py-1"><i class="bi bi-heart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -129,8 +169,20 @@
                             <div class="card-body p-2">
                                 <h5 class="card-title text-truncate">Cà Phê Americano</h5>
                                 <p class="card-text">Espresso pha loãng, mang lại hương vị thanh khiết.</p>
-                                <p class="price-text">30.000đ</p>
-                                <a href="#" class="btn btn-buy w-100">Mua Ngay</a>
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <span class="price-text">30.000đ</span>
+                                    <div class="rating-stars">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star text-warning"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between bg-light p-2 border-top-0">
+                                <button class="btn btn-success btn-buy btn-sm w-75 py-1">Mua Ngay</button>
+                                <button class="btn btn-outline-secondary btn-sm px-2 py-1"><i class="bi bi-heart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -142,8 +194,20 @@
                             <div class="card-body p-2">
                                 <h5 class="card-title text-truncate">Cà Phê Mocha</h5>
                                 <p class="card-text">Sự kết hợp ngọt ngào giữa cà phê và chocolate.</p>
-                                <p class="price-text">50.000đ</p>
-                                <a href="#" class="btn btn-buy w-100">Mua Ngay</a>
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <span class="price-text">50.000đ</span>
+                                    <div class="rating-stars">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between bg-light p-2 border-top-0">
+                                <button class="btn btn-success btn-buy btn-sm w-75 py-1">Mua Ngay</button>
+                                <button class="btn btn-outline-secondary btn-sm px-2 py-1"><i class="bi bi-heart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -155,8 +219,20 @@
                             <div class="card-body p-2">
                                 <h5 class="card-title text-truncate">Cà Phê Macchiato</h5>
                                 <p class="card-text">Espresso điểm xuyết chút bọt sữa trên bề mặt.</p>
-                                <p class="price-text">38.000đ</p>
-                                <a href="#" class="btn btn-buy w-100">Mua Ngay</a>
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <span class="price-text">38.000đ</span>
+                                    <div class="rating-stars">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star text-warning"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between bg-light p-2 border-top-0">
+                                <button class="btn btn-success btn-buy btn-sm w-75 py-1">Mua Ngay</button>
+                                <button class="btn btn-outline-secondary btn-sm px-2 py-1"><i class="bi bi-heart"></i></button>
                             </div>
                         </div>
                     </div>
