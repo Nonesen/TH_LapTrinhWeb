@@ -29,21 +29,9 @@
             overflow: hidden;
         }
 
-        .price-text {
-            font-weight: bold;
-            color: #d9534f;
-            font-size: 0.95rem;
-            margin-bottom: 0;
-        }
-
         .card img {
-            height: 130px;
+            height: 140px;
             object-fit: cover;
-        }
-
-        .btn-buy {
-            font-size: 0.75rem;
-            padding: 0.25rem 0.5rem;
         }
 
         header h1 {
@@ -52,10 +40,33 @@
 
         .sidebar-box {
             font-size: 0.85rem;
+            min-width: 200px;
         }
         
         .rating-stars i {
             font-size: 0.7rem;
+        }
+
+        /* Sidebar toggle animation */
+        #sidebar-column {
+            transition: all 0.3s ease;
+        }
+        
+        .collapsed-sidebar {
+            width: 0;
+            padding: 0 !important;
+            overflow: hidden;
+            opacity: 0;
+            margin-left: -1rem;
+        }
+
+        .product-area {
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn {
+            cursor: pointer;
+            z-index: 1000;
         }
     </style>
 </head>
@@ -67,13 +78,18 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark py-0">
         <div class="container">
-            <a class="navbar-brand fs-6" href="#">Trang Chủ</a>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-outline-light btn-sm me-2 toggle-btn" onclick="toggleSidebar()">
+                    <i class="bi bi-layout-sidebar-inset"></i>
+                </button>
+                <a class="navbar-brand fs-6" href="#">Trang Chủ</a>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link fs-6 py-1" href="#">Sản Phẩm</a></li>
                     <li class="nav-item"><a class="nav-link fs-6 py-1" href="#">Liên Hệ</a></li>
                 </ul>
@@ -84,163 +100,169 @@
     <div class="container mt-3">
         <div class="row g-3">
             <!-- Danh sách sản phẩm -->
-            <div class="col-md-9">
-                <div class="row row-cols-2 row-cols-md-3 g-2">
+            <div class="col product-area" id="main-content">
+                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-2">
                     <!-- Sản phẩm 1 -->
                     <div class="col">
-                        <div class="card h-100 shadow-sm border-0 product-card">
+                        <div class="card h-100 shadow-sm border-0 product-card" style="max-width: 320px">
                             <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=400&h=250&fit=crop"
                                 class="card-img-top" alt="Espresso">
                             <div class="card-body p-2">
                                 <h5 class="card-title text-truncate">Cà Phê Espresso</h5>
                                 <p class="card-text">Đậm đặc nguyên chất, nền tảng của mọi loại cà phê.</p>
-                                <div class="d-flex justify-content-between align-items-center mb-1">
-                                    <span class="price-text">35.000đ</span>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="h6 mb-0">35.000đ</span>
                                     <div class="rating-stars">
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-half text-warning"></i>
+                                        <small class="text-muted">(4.5)</small>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer d-flex justify-content-between bg-light p-2 border-top-0">
-                                <button class="btn btn-success btn-buy btn-sm w-75 py-1">Mua Ngay</button>
-                                <button class="btn btn-outline-secondary btn-sm px-2 py-1"><i class="bi bi-heart"></i></button>
+                            <div class="card-footer d-flex justify-content-between bg-light p-2">
+                                <button class="btn btn-primary btn-sm">Thêm vào giỏ</button>
+                                <button class="btn btn-outline-secondary btn-sm px-2"><i class="bi bi-heart"></i></button>
                             </div>
                         </div>
                     </div>
                     <!-- Sản phẩm 2 -->
                     <div class="col">
-                        <div class="card h-100 shadow-sm border-0 product-card">
+                        <div class="card h-100 shadow-sm border-0 product-card" style="max-width: 320px">
                             <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=250&fit=crop"
                                 class="card-img-top" alt="Latte">
                             <div class="card-body p-2">
                                 <h5 class="card-title text-truncate">Cà Phê Latte</h5>
                                 <p class="card-text">Sự hòa quyện giữa Espresso và sữa tươi mịn màng.</p>
-                                <div class="d-flex justify-content-between align-items-center mb-1">
-                                    <span class="price-text">45.000đ</span>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="h6 mb-0">45.000đ</span>
                                     <div class="rating-stars">
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
+                                        <small class="text-muted">(5.0)</small>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer d-flex justify-content-between bg-light p-2 border-top-0">
-                                <button class="btn btn-success btn-buy btn-sm w-75 py-1">Mua Ngay</button>
-                                <button class="btn btn-outline-secondary btn-sm px-2 py-1"><i class="bi bi-heart"></i></button>
+                            <div class="card-footer d-flex justify-content-between bg-light p-2">
+                                <button class="btn btn-primary btn-sm">Thêm vào giỏ</button>
+                                <button class="btn btn-outline-secondary btn-sm px-2"><i class="bi bi-heart"></i></button>
                             </div>
                         </div>
                     </div>
                     <!-- Sản phẩm 3 -->
                     <div class="col">
-                        <div class="card h-100 shadow-sm border-0 product-card">
+                        <div class="card h-100 shadow-sm border-0 product-card" style="max-width: 320px">
                             <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=400&h=250&fit=crop"
                                 class="card-img-top" alt="Cappuccino">
                             <div class="card-body p-2">
                                 <h5 class="card-title text-truncate">Cà Phê Cappuccino</h5>
                                 <p class="card-text">Lớp bọt sữa dày bồng bềnh trên nền Espresso đậm đà.</p>
-                                <div class="d-flex justify-content-between align-items-center mb-1">
-                                    <span class="price-text">40.000đ</span>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="h6 mb-0">40.000đ</span>
                                     <div class="rating-stars">
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-half text-warning"></i>
+                                        <small class="text-muted">(4.2)</small>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer d-flex justify-content-between bg-light p-2 border-top-0">
-                                <button class="btn btn-success btn-buy btn-sm w-75 py-1">Mua Ngay</button>
-                                <button class="btn btn-outline-secondary btn-sm px-2 py-1"><i class="bi bi-heart"></i></button>
+                            <div class="card-footer d-flex justify-content-between bg-light p-2">
+                                <button class="btn btn-primary btn-sm">Thêm vào giỏ</button>
+                                <button class="btn btn-outline-secondary btn-sm px-2"><i class="bi bi-heart"></i></button>
                             </div>
                         </div>
                     </div>
                     <!-- Sản phẩm 4 -->
                     <div class="col">
-                        <div class="card h-100 shadow-sm border-0 product-card">
+                        <div class="card h-100 shadow-sm border-0 product-card" style="max-width: 320px">
                             <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=250&fit=crop"
                                 class="card-img-top" alt="Americano">
                             <div class="card-body p-2">
                                 <h5 class="card-title text-truncate">Cà Phê Americano</h5>
                                 <p class="card-text">Espresso pha loãng, mang lại hương vị thanh khiết.</p>
-                                <div class="d-flex justify-content-between align-items-center mb-1">
-                                    <span class="price-text">30.000đ</span>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="h6 mb-0">30.000đ</span>
                                     <div class="rating-stars">
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star text-warning"></i>
+                                        <small class="text-muted">(4.0)</small>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer d-flex justify-content-between bg-light p-2 border-top-0">
-                                <button class="btn btn-success btn-buy btn-sm w-75 py-1">Mua Ngay</button>
-                                <button class="btn btn-outline-secondary btn-sm px-2 py-1"><i class="bi bi-heart"></i></button>
+                            <div class="card-footer d-flex justify-content-between bg-light p-2">
+                                <button class="btn btn-primary btn-sm">Thêm vào giỏ</button>
+                                <button class="btn btn-outline-secondary btn-sm px-2"><i class="bi bi-heart"></i></button>
                             </div>
                         </div>
                     </div>
                     <!-- Sản phẩm 5 -->
                     <div class="col">
-                        <div class="card h-100 shadow-sm border-0 product-card">
+                        <div class="card h-100 shadow-sm border-0 product-card" style="max-width: 320px">
                             <img src="https://images.unsplash.com/photo-1534706936160-d5ee67737249?w=400&h=250&fit=crop"
                                 class="card-img-top" alt="Mocha">
                             <div class="card-body p-2">
                                 <h5 class="card-title text-truncate">Cà Phê Mocha</h5>
                                 <p class="card-text">Sự kết hợp ngọt ngào giữa cà phê và chocolate.</p>
-                                <div class="d-flex justify-content-between align-items-center mb-1">
-                                    <span class="price-text">50.000đ</span>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="h6 mb-0">50.000đ</span>
                                     <div class="rating-stars">
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
+                                        <small class="text-muted">(4.8)</small>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer d-flex justify-content-between bg-light p-2 border-top-0">
-                                <button class="btn btn-success btn-buy btn-sm w-75 py-1">Mua Ngay</button>
-                                <button class="btn btn-outline-secondary btn-sm px-2 py-1"><i class="bi bi-heart"></i></button>
+                            <div class="card-footer d-flex justify-content-between bg-light p-2">
+                                <button class="btn btn-primary btn-sm">Thêm vào giỏ</button>
+                                <button class="btn btn-outline-secondary btn-sm px-2"><i class="bi bi-heart"></i></button>
                             </div>
                         </div>
                     </div>
                     <!-- Sản phẩm 6 -->
                     <div class="col">
-                        <div class="card h-100 shadow-sm border-0 product-card">
-                            <img src="https://images.unsplash.com/photo-1541167760496-162955ed8a9f?w=400&h=250&fit=crop"
+                        <div class="card h-100 shadow-sm border-0 product-card" style="max-width: 320px">
+                            <img src="https://images.unsplash.com/photo-1612800045437-013098555e5c?w=400&h=250&fit=crop"
                                 class="card-img-top" alt="Cà Phê Phin Sữa Đá">
                             <div class="card-body p-2">
                                 <h5 class="card-title text-truncate">Cà Phê Phin Sữa Đá</h5>
                                 <p class="card-text">Hương vị truyền thống Việt Nam, đậm đà và sảng khoái.</p>
-                                <div class="d-flex justify-content-between align-items-center mb-1">
-                                    <span class="price-text">25.000đ</span>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="h6 mb-0">25.000đ</span>
                                     <div class="rating-stars">
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
                                         <i class="bi bi-star-fill text-warning"></i>
+                                        <small class="text-muted">(5.0)</small>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer d-flex justify-content-between bg-light p-2 border-top-0">
-                                <button class="btn btn-success btn-buy btn-sm w-75 py-1">Mua Ngay</button>
-                                <button class="btn btn-outline-secondary btn-sm px-2 py-1"><i class="bi bi-heart"></i></button>
+                            <div class="card-footer d-flex justify-content-between bg-light p-2">
+                                <button class="btn btn-primary btn-sm">Thêm vào giỏ</button>
+                                <button class="btn btn-outline-secondary btn-sm px-2"><i class="bi bi-heart"></i></button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Sidebar -->
-            <div class="col-md-3">
+            <!-- Sidebar Column -->
+            <div class="col-auto" id="sidebar-column">
                 <div class="bg-primary text-white p-2 rounded shadow-sm sidebar-box">
                     <h6 class="fw-bold border-bottom pb-1 mb-2">Social Media</h6>
                     <ul class="list-unstyled mb-0">
@@ -276,6 +298,12 @@
 
     <!-- Sử dụng Bootstrap JS và Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar-column');
+            sidebar.classList.toggle('collapsed-sidebar');
+        }
+    </script>
 </body>
 
 </html>
