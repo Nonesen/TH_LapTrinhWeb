@@ -1,5 +1,5 @@
 :root {
-    --amber-color: #FFB300;
+    --amber-color: #4e342e;
     --slate-gray: #455A64;
     --dark-bg: #333333;
 }
@@ -15,7 +15,7 @@ header {
 
 nav.navbar {
     background-color: var(--amber-color) !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Fix chiều cao ảnh để danh sách luôn đều nhau */
@@ -27,7 +27,7 @@ nav.navbar {
 .product-card:hover {
     transform: translateY(-5px);
     transition: 0.3s;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.12) !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12) !important;
 }
 
 .btn-buy {
@@ -61,7 +61,7 @@ nav.navbar {
     display: block;
     padding: 8px;
     margin-bottom: 5px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 4px;
 }
 

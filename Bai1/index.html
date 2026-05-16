@@ -4,19 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Web Bán Cà Phê</title>
+    <title>Coffee Tree</title>
 
     <!-- Sử dụng Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
     <style>
-        body { background-color: #f8f9fa; }
-        .card-title { font-size: 0.95rem; font-weight: bold; margin-bottom: 0.25rem; }
-        .card-text { font-size: 0.8rem; color: #666; line-height: 1.2; height: 2.4rem; overflow: hidden; }
-        .price-text { font-weight: bold; color: #d9534f; font-size: 0.9rem; margin-bottom: 0.5rem; }
-        .card img { height: 120px; object-fit: cover; }
-        .btn-buy { font-size: 0.75rem; padding: 0.25rem 0.5rem; }
-        header h1 { font-size: 1.5rem !important; }
-        .sidebar-box { font-size: 0.85rem; }
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .card-title {
+            font-size: 0.95rem;
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-text {
+            font-size: 0.8rem;
+            color: #666;
+            line-height: 1.2;
+            height: 2.4rem;
+            overflow: hidden;
+        }
+
+        .price-text {
+            font-weight: bold;
+            color: #d9534f;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card img {
+            height: 120px;
+            object-fit: cover;
+        }
+
+        .btn-buy {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+        }
+
+        header h1 {
+            font-size: 1.5rem !important;
+        }
+
+        .sidebar-box {
+            font-size: 0.85rem;
+        }
     </style>
 </head>
 
@@ -25,8 +60,8 @@
         <h1 class="mb-0">Trang Web Bán Hàng</h1>
     </header>
 
-    <!-- Menu điều hướng sử dụng Bootstrap Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-warning py-0">
+    <!-- Menu điều hướng sử dụng Bootstrap Navbar - Đã loại bỏ bg-warning để dùng màu từ style.css -->
+    <nav class="navbar navbar-expand-lg navbar-dark py-0">
         <div class="container">
             <a class="navbar-brand fs-6" href="#">Trang Chủ</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -49,73 +84,79 @@
                 <div class="row row-cols-2 row-cols-md-3 g-2">
                     <!-- Sản phẩm 1 -->
                     <div class="col">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=400&h=250&auto=format&fit=crop" class="card-img-top" alt="Espresso">
+                        <div class="card h-100 shadow-sm border-0 product-card">
+                            <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=400&h=250&q=80"
+                                class="card-img-top" alt="Espresso">
                             <div class="card-body p-2">
                                 <h5 class="card-title text-truncate">Cà Phê Espresso</h5>
                                 <p class="card-text">Đậm đặc nguyên chất, nền tảng của mọi loại cà phê.</p>
                                 <p class="price-text">35.000đ</p>
-                                <a href="#" class="btn btn-success btn-buy w-100">Mua Ngay</a>
+                                <a href="#" class="btn btn-buy w-100">Mua Ngay</a>
                             </div>
                         </div>
                     </div>
                     <!-- Sản phẩm 2 -->
                     <div class="col">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="https://images.unsplash.com/photo-1541167760496-162955ed8a9f?q=80&w=400&h=250&auto=format&fit=crop" class="card-img-top" alt="Latte">
+                        <div class="card h-100 shadow-sm border-0 product-card">
+                            <img src="https://images.unsplash.com/photo-1536496193878-012a9cbf59ff?auto=format&fit=crop&w=400&h=250&q=80"
+                                class="card-img-top" alt="Latte">
                             <div class="card-body p-2">
                                 <h5 class="card-title text-truncate">Cà Phê Latte</h5>
                                 <p class="card-text">Sự hòa quyện giữa Espresso và sữa tươi mịn màng.</p>
                                 <p class="price-text">45.000đ</p>
-                                <a href="#" class="btn btn-success btn-buy w-100">Mua Ngay</a>
+                                <a href="#" class="btn btn-buy w-100">Mua Ngay</a>
                             </div>
                         </div>
                     </div>
                     <!-- Sản phẩm 3 -->
                     <div class="col">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="https://images.unsplash.com/photo-1572442313968-c399722c50d4?q=80&w=400&h=250&auto=format&fit=crop" class="card-img-top" alt="Cappuccino">
+                        <div class="card h-100 shadow-sm border-0 product-card">
+                            <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=400&h=250&q=80"
+                                class="card-img-top" alt="Cappuccino">
                             <div class="card-body p-2">
                                 <h5 class="card-title text-truncate">Cà Phê Cappuccino</h5>
                                 <p class="card-text">Lớp bọt sữa dày bồng bềnh trên nền Espresso đậm đà.</p>
                                 <p class="price-text">40.000đ</p>
-                                <a href="#" class="btn btn-success btn-buy w-100">Mua Ngay</a>
+                                <a href="#" class="btn btn-buy w-100">Mua Ngay</a>
                             </div>
                         </div>
                     </div>
                     <!-- Sản phẩm 4 -->
                     <div class="col">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?q=80&w=400&h=250&auto=format&fit=crop" class="card-img-top" alt="Americano">
+                        <div class="card h-100 shadow-sm border-0 product-card">
+                            <img src="https://images.unsplash.com/photo-1509042233039-847049c7f3fc?auto=format&fit=crop&w=400&h=250&q=80"
+                                class="card-img-top" alt="Americano">
                             <div class="card-body p-2">
                                 <h5 class="card-title text-truncate">Cà Phê Americano</h5>
                                 <p class="card-text">Espresso pha loãng, mang lại hương vị thanh khiết.</p>
                                 <p class="price-text">30.000đ</p>
-                                <a href="#" class="btn btn-success btn-buy w-100">Mua Ngay</a>
+                                <a href="#" class="btn btn-buy w-100">Mua Ngay</a>
                             </div>
                         </div>
                     </div>
                     <!-- Sản phẩm 5 -->
                     <div class="col">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?q=80&w=400&h=250&auto=format&fit=crop" class="card-img-top" alt="Mocha">
+                        <div class="card h-100 shadow-sm border-0 product-card">
+                            <img src="https://images.unsplash.com/photo-1534706936160-d5ee67737249?auto=format&fit=crop&w=400&h=250&q=80"
+                                class="card-img-top" alt="Mocha">
                             <div class="card-body p-2">
                                 <h5 class="card-title text-truncate">Cà Phê Mocha</h5>
                                 <p class="card-text">Sự kết hợp ngọt ngào giữa cà phê và chocolate.</p>
                                 <p class="price-text">50.000đ</p>
-                                <a href="#" class="btn btn-success btn-buy w-100">Mua Ngay</a>
+                                <a href="#" class="btn btn-buy w-100">Mua Ngay</a>
                             </div>
                         </div>
                     </div>
                     <!-- Sản phẩm 6 -->
                     <div class="col">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="https://images.unsplash.com/photo-1485808191679-5f6333c1d181?q=80&w=400&h=250&auto=format&fit=crop" class="card-img-top" alt="Macchiato">
+                        <div class="card h-100 shadow-sm border-0 product-card">
+                            <img src="https://images.unsplash.com/photo-1595434066389-9944b7c3accb?auto=format&fit=crop&w=400&h=250&q=80"
+                                class="card-img-top" alt="Macchiato">
                             <div class="card-body p-2">
                                 <h5 class="card-title text-truncate">Cà Phê Macchiato</h5>
                                 <p class="card-text">Espresso điểm xuyết chút bọt sữa trên bề mặt.</p>
                                 <p class="price-text">38.000đ</p>
-                                <a href="#" class="btn btn-success btn-buy w-100">Mua Ngay</a>
+                                <a href="#" class="btn btn-buy w-100">Mua Ngay</a>
                             </div>
                         </div>
                     </div>
@@ -130,7 +171,6 @@
                         <li class="mb-1"><a href="#" class="text-white text-decoration-none">Facebook</a></li>
                         <li class="mb-1"><a href="#" class="text-white text-decoration-none">Twitter</a></li>
                         <li class="mb-1"><a href="#" class="text-white text-decoration-none">Instagram</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">LinkedIn</a></li>
                     </ul>
                 </div>
             </div>
