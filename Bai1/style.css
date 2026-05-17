@@ -65,16 +65,17 @@ nav.navbar {
     font-size: 0.7rem;
 }
 
-/* Sidebar toggle animation */
+/* Hiệu ứng chuyển động mượt mà (transition animation) khi ẩn/hiện Sidebar */
 #sidebar-column {
     transition: all 0.3s ease;
 }
 
+/* Các thuộc tính CSS được áp dụng khi Sidebar ở trạng thái thu gọn */
 .collapsed-sidebar {
     width: 0;
     padding: 0 !important;
-    overflow: hidden;
-    opacity: 0;
+    overflow: hidden; /* Ẩn các thành phần con vượt quá giới hạn rộng bằng 0 */
+    opacity: 0;       /* Làm mờ hẳn Sidebar khi ẩn */
     margin-left: -1rem;
 }
 
