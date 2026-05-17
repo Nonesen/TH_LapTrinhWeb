@@ -1,8 +1,9 @@
 :root {
-    --primary-green: #2ecc71; /* Màu xanh lá tươi tắn, sống động */
-    --nav-dark: #1e272e;      /* Màu xanh đen hiện đại thay cho màu nâu */
-    --slate-gray: #455A64;
-    --dark-bg: #333333;
+    /* Định nghĩa bảng màu chủ đạo (CSS Variables) của trang web Coffee Tree */
+    --primary-green: #2ecc71; /* Màu xanh lá tươi tắn, sống động làm thương hiệu chính */
+    --nav-dark: #1e272e;      /* Màu xanh đen hiện đại thay thế cho màu nâu truyền thống */
+    --slate-gray: #455A64;    /* Màu xám đá phiến dùng cho các thành phần trung tính */
+    --dark-bg: #333333;       /* Tông màu nền tối dùng cho footer */
 }
 
 body {
