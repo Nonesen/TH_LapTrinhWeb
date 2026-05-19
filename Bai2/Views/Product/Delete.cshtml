@@ -1,19 +1,71 @@
 @model Bai2.Models.Product
 
 @{
-    ViewData["Title"] = "Delete Product";
+    ViewData["Title"] = "Xác Nhận Xóa Thiết Bị";
 }
 
-<h2>Are you sure you want to delete this?</h2>
+<div class="container mt-4" style="max-width: 600px;">
+    <!-- Breadcrumb điều hướng -->
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a asp-action="Index" class="text-primary text-decoration-none fw-semibold">Trang chủ</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a asp-action="Display" asp-route-id="@Model.Id" class="text-primary text-decoration-none">@Model.Name</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Xóa khỏi hệ thống</li>
+        </ol>
+    </nav>
 
-<div>
-    <h4>Name: @Model.Name</h4>
-    <h4>Price: @Model.Price.ToString("C")</h4>
-    <h4>Description: @Model.Description</h4>
+    <!-- Thẻ cảnh báo xóa -->
+    <div class="modern-form-card border border-danger border-2">
+        <div class="text-center pb-3 border-bottom mb-4">
+            <i class="bi bi-exclamation-octagon text-danger" style="font-size: 3.5rem;"></i>
+            <h3 class="fw-bold text-danger mt-2">Xóa Thiết Bị Khỏi Hệ Thống</h3>
+            <p class="text-muted small mb-0">Cảnh báo: Hành động này sẽ gỡ bỏ vĩnh viễn thiết bị khỏi danh mục bán hàng.</p>
+        </div>
+
+        <!-- Thông tin tóm tắt thiết bị cần xóa -->
+        <div class="row align-items-center mb-4 bg-light p-3 rounded-3 mx-1 border">
+            <div class="col-sm-4 text-center mb-3 mb-sm-0">
+                @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                {
+                    <img src="@Model.ImageUrl" class="img-fluid rounded border shadow-sm" style="max-height: 100px; object-fit: cover;" />
+                }
+                else
+                {
+                    <div class="bg-white rounded d-flex align-items-center justify-content-center border" style="height: 100px;">
+                        @if (Model.CategoryId == 1)
+                        {
+                            <i class="bi bi-laptop text-primary fs-1"></i>
+                        }
+                        else
+                        {
+                            <i class="bi bi-phone text-primary fs-1"></i>
+                        }
+                    </div>
+                }
+            </div>
+            <div class="col-sm-8">
+                <span class="badge bg-secondary mb-1">ID: #@Model.Id</span>
+                <h5 class="fw-bold text-dark mb-1">@Model.Name</h5>
+                <h6 class="text-danger fw-bold mb-2">$@Model.Price.ToString("#,##0")</h6>
+                <p class="text-muted small mb-0 text-truncate">@Model.Description</p>
+            </div>
+        </div>
+
+        <!-- Form xác nhận gửi lên controller -->
+        <form asp-action="DeleteConfirmed" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div class="d-flex gap-3 justify-content-center pt-3 border-top">
+                <button type="submit" class="btn btn-danger btn-lg px-4 shadow-sm">
+                    <i class="bi bi-trash3-fill me-2"></i>Xác Nhận Xóa
+                </button>
+                <a asp-action="Index" class="btn btn-modern-secondary px-4">
+                    <i class="bi bi-x-lg me-2"></i>Hủy bỏ
+                </a>
+            </div>
+        </form>
+    </div>
 </div>
-
-<form asp-action="DeleteConfirmed" method="post">
-    <input type="hidden" asp-for="Id" />
-    <input type="submit" value="Delete" class="btn btn-danger" /> |
-    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
-</form>
