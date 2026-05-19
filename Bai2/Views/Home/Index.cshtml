@@ -1,55 +1,8 @@
 @{
-    ViewData["Title"] = "Premium Shopping";
+    ViewData["Title"] = "Home Page";
 }
 
-<div class="hero-section">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <h1 class="hero-title">Experience the Future of <span style="color: var(--primary)">Shopping</span></h1>
-                <p class="hero-subtitle">Discover a curated collection of premium products designed for the modern lifestyle. Quality meets elegance in every detail.</p>
-                <div class="d-flex gap-3">
-                    <a asp-controller="Product" asp-action="Index" class="btn btn-primary">Shop Collection</a>
-                    <a href="#" class="btn btn-outline-dark px-4 py-2" style="border-radius: 12px; font-weight: 600;">Learn More</a>
-                </div>
-            </div>
-            <div class="col-lg-6 d-none d-lg-block">
-                <div class="position-relative">
-                    <div style="background: linear-gradient(45deg, var(--primary), var(--accent)); width: 400px; height: 400px; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; filter: blur(50px); opacity: 0.2; position: absolute; top: 0; right: 0;"></div>
-                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1000&auto=format&fit=crop" alt="Hero" class="img-fluid rounded-4 shadow-lg position-relative" style="z-index: 1;">
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="text-center my-5 py-5">
+    <h1 class="display-4 fw-bold text-primary mb-3">Welcome</h1>
+    <p class="lead text-muted">Learn about <a href="https://learn.microsoft.com/aspnet/core" target="_blank" class="text-decoration-none text-primary">building Web apps with ASP.NET Core</a>.</p>
 </div>
-
-<div class="container my-5">
-    <div class="text-center mb-5">
-        <h2 class="fw-bold">Our Philosophy</h2>
-        <p class="text-muted">Simple. Elegant. Timeless.</p>
-    </div>
-    <div class="row g-4">
-        <div class="col-md-4">
-            <div class="card p-4 text-center h-100">
-                <div class="mb-3"><i class="bi bi-shield-check fs-1 text-primary"></i></div>
-                <h4>Secure Payments</h4>
-                <p class="text-muted">Your transactions are protected by industry-leading security standards.</p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card p-4 text-center h-100">
-                <div class="mb-3"><i class="bi bi-truck fs-1 text-primary"></i></div>
-                <h4>Fast Delivery</h4>
-                <p class="text-muted">Global shipping options to get your products to you as quickly as possible.</p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card p-4 text-center h-100">
-                <div class="mb-3"><i class="bi bi-headset fs-1 text-primary"></i></div>
-                <h4>24/7 Support</h4>
-                <p class="text-muted">Our dedicated team is always here to help you with any questions.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
