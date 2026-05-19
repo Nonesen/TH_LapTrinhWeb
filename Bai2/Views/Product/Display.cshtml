@@ -1,36 +1,117 @@
 @model Bai2.Models.Product
 
 @{
-    ViewData["Title"] = "Product Details";
+    ViewData["Title"] = Model.Name;
 }
 
-<h2>Product Details</h2>
+<div class="container mt-4">
+    <!-- Breadcrumb điều hướng -->
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a asp-action="Index" class="text-primary text-decoration-none fw-semibold">
+                    <i class="bi bi-house-door-fill me-1"></i>Trang chủ
+                </a>
+            </li>
+            <li class="breadcrumb-item">
+                <a asp-action="Index" class="text-primary text-decoration-none">Sản phẩm</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">@Model.Name</li>
+        </ol>
+    </nav>
 
-<div>
-    <h4>Name: @Model.Name</h4>
-    <h4>Price: @Model.Price.ToString("C")</h4>
-    <h4>Description: @Model.Description</h4>
-    @if (!string.IsNullOrEmpty(Model.ImageUrl))
-    {
-        <div class="mt-3">
-            <h5>Product Image:</h5>
-            <img src="@Model.ImageUrl" width="200" />
+    <!-- Thẻ chi tiết sản phẩm thiết kế cao cấp -->
+    <div class="modern-form-card">
+        <div class="row g-4 align-items-center">
+            
+            <!-- Cột trái: Hình ảnh chính & thư viện ảnh phụ -->
+            <div class="col-md-6 text-center">
+                <div class="position-relative overflow-hidden rounded-4 border shadow-sm bg-light p-4 d-flex align-items-center justify-content-center" style="height: 380px;">
+                    @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                    {
+                        <img src="@Model.ImageUrl" id="mainDetailImg" class="img-fluid rounded" alt="@Model.Name" style="max-height: 100%; object-fit: contain;">
+                    }
+                    else
+                    {
+                        <!-- Fallback icon theo CategoryId -->
+                        <div class="text-center">
+                            @if (Model.CategoryId == 1)
+                            {
+                                <i class="bi bi-laptop text-primary" style="font-size: 8rem;"></i>
+                                <h5 class="text-muted mt-2 fw-semibold">Thiết Bị Laptop</h5>
+                            }
+                            else
+                            {
+                                <i class="bi bi-phone text-primary" style="font-size: 8rem;"></i>
+                                <h5 class="text-muted mt-2 fw-semibold">Thiết Bị Điện Thoại</h5>
+                            }
+                        </div>
+                    }
+                </div>
+
+                <!-- Thư viện ảnh phụ nếu có -->
+                @if (Model.ImageUrls != null && Model.ImageUrls.Count > 0)
+                {
+                    <div class="d-flex justify-content-center gap-2 mt-3 overflow-auto py-1">
+                        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                        {
+                            <img src="@Model.ImageUrl" class="img-thumbnail rounded-3 cursor-pointer" 
+                                 alt="Main Thumb" style="width: 60px; height: 60px; object-fit: cover;" 
+                                 onclick="changeImage('@Model.ImageUrl')">
+                        }
+                        
+                        @foreach (var url in Model.ImageUrls)
+                        {
+                            <img src="@url" class="img-thumbnail rounded-3 cursor-pointer" 
+                                 alt="Sub Thumb" style="width: 60px; height: 60px; object-fit: cover;" 
+                                 onclick="changeImage('@url')">
+                        }
+                    </div>
+                }
+            </div>
+
+            <!-- Cột phải: Thông tin & Nút hành động -->
+            <div class="col-md-6">
+                <div class="ps-md-4">
+                    <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill fw-bold mb-2">
+                        @(Model.CategoryId == 1 ? "Laptop Device" : "Phone Device")
+                    </span>
+                    <h2 class="fw-bold text-dark mb-2">@Model.Name</h2>
+                    
+                    <!-- Giá bán định dạng USD -->
+                    <h3 class="text-danger my-3 fw-bold">$@Model.Price.ToString("#,##0")</h3>
+                    
+                    <div class="border-top pt-3 mt-3">
+                        <h6 class="fw-bold text-secondary mb-2">Mô Tả Sản Phẩm:</h6>
+                        <p class="text-muted fs-6 mb-4" style="text-align: justify; line-height: 1.6;">
+                            @Model.Description
+                        </p>
+                    </div>
+
+                    <!-- Khung thao tác hành động -->
+                    <div class="d-flex flex-wrap gap-3 mt-4 pt-3 border-top">
+                        <button class="btn btn-modern-primary btn-lg px-5 shadow-sm">Đặt Mua Ngay</button>
+                        <a asp-action="Index" class="btn btn-modern-secondary btn-lg px-4">Quay Lại</a>
+                        
+                        <!-- Nút chỉnh sửa nâng cao dành cho admin -->
+                        <a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-outline-warning btn-lg px-3" title="Chỉnh sửa sản phẩm">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    }
-    @if (Model.ImageUrls != null && Model.ImageUrls.Count > 0)
-    {
-        <div class="mt-3">
-            <h5>Other Images:</h5>
-            @foreach (var url in Model.ImageUrls)
-            {
-                <img src="@url" width="100" class="me-2" />
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function changeImage(url) {
+            const mainImg = document.getElementById('mainDetailImg');
+            if (mainImg) {
+                mainImg.src = url;
             }
-        </div>
-    }
-</div>
-
-<hr />
-<div class="mt-3">
-    <a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a> |
-    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
-</div>
+        }
+    </script>
+}
