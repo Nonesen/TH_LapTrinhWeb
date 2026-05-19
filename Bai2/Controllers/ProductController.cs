@@ -365,3 +365,6 @@ namespace Bai2.Controllers
         }
     }
 }
+
+// Da hoan thanh cau hinh toan bo chuc nang CRUD nang cao cho ProductController theo giao trinh hoc tap.
+
