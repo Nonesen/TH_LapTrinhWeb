@@ -6,4 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <!-- Loại bỏ thư mục images khỏi Content và Watch để tránh File Watcher và Hot Reload tự động reset máy chủ khi upload ảnh -->
+    <Content Remove="wwwroot\images\**" />
+    <Watch Include="wwwroot/images/**/*" Watch="false" />
+  </ItemGroup>
+
 </Project>
